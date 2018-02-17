@@ -1,2 +1,2 @@
 # Sequential-Decoder
-Sequential Decodercfor Convolutional Coding (Fano's Algorithm) in Matlab for Data Communication and Networking
+Sequential Decoder for Convolutional Codes (Fano's Algorithm) in Matlab for Data Communication and Networking
