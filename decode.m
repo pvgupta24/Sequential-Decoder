@@ -2,10 +2,12 @@
 function code = decode(conv_code, g1, g2, cur_state, err_count, threshhold, level, m)
     
     if(err_count == threshhold)
+        code = [];
         return
     end    
     
     if(level > (length(conv_code)/2))
+        code = [];
         return
     end
     
