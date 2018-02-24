@@ -1,12 +1,22 @@
-%==========  Given generating functions and threshhold ==========%
+%==========  Error analysis using the given parameters ========== %
+
 g1 = [1 1 0 1 1 1 0 0 1];
 g2 = [1 1 1 0 1 1 0 0 1];
-threshhold = 5;
-%========== 10 Zeroes for starting state (in Trellis) ==========%
-start_state = [0 0 0 0 0 0 0 0 0 0];
-error_count =0;
+threshold = 5;
 m = 11;
-%========== 8 Bit Input to Decode ==========%
-input = [1 0 1 0 1 0 1 0];
+orig_in_len = 4;
+max_errors = 6;
 
-decode(input, g1, g2, start_state, error_count, threshhold, m)
+disp('Analyzing Errors ...');
+[per_detected, per_corrected] = error_percentage(orig_in_len, g1, g2, threshold, m, max_errors)
+
+percentage = transpose([per_detected;per_corrected]);
+
+bar(1:max_errors, percentage)
+
+legend('% of Detected Errors','% of Corrected Errors')
+ylim([0 100])
+title(['Error Analysis for ' num2str(orig_in_len) , ' bit Input'])
+xlabel('No. of error bits')
+ylabel('Percentage')
+print('BarPlot','-dpng')
