@@ -26,3 +26,4 @@ function [g1_bit, g2_bit] = conv_2bit(input, cur_state, g1, g2)
     end    
 end
 
+

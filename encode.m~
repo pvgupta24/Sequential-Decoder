@@ -1,7 +1,5 @@
 function conv_code = encode(in_code, g1, g2, m)
-% function to encode given input code using generators g1 and g2 and output
-% convolutional code
-
+% function to encode given input code using g
     cur_state = zeros(1, m-1);
     conv_code = [];
     len_in_code = length(in_code);

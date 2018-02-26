@@ -1,6 +1,7 @@
-%============ This function decodes the given input ==================%
+
 function code = decode(conv_code, g1, g2, cur_state, err_count, threshhold, m)
-    
+ %============ This function decodes the given input ==================%
+ 
     if(err_count >= threshhold)
         code = [];
         return
