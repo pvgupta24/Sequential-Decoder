@@ -12,9 +12,9 @@ threshold = 5;
 memory_bits = 11;
 
 %=========  No. of Input bits to be passed to encoder  =========%
-input_bits = 4;
+input_bits = 2;
 %=========  Maximum no of bits with errors in the encoded codeword for analysis  =========%
-max_errors = 6;
+max_errors = 2;
 
 disp(['Input Bits to encoder :', num2str(input_bits)]);
 disp(['Maximum Bits with errors in encoded codeword :', num2str(max_errors)]);
