@@ -1,5 +1,14 @@
-%This function finds the next state and 2-bit convolutional output during
-%state transition
+function conv_code = encode(in_code, g1, g2, m)
+    cur_state = zeros(1, m-1);
+    conv_code = [];
+    len_in_code = length(in_code);
+    for i=1:len_in_code
+        in_bit = in_code(i);
+        [cur_state, output] = getNextState(in_bit, cur_state, g1, g2, m);
+        conv_code = [conv_code output];
+    end    
+end
+
 function [next_state, output] = getNextState(input, cur_state, g1, g2, m)
     [g1_bit, g2_bit] = conv_2bit(input, cur_state, g1, g2);
     output = [g1_bit g2_bit];
@@ -25,4 +34,3 @@ function [g1_bit, g2_bit] = conv_2bit(input, cur_state, g1, g2)
         end    
     end    
 end
-

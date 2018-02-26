@@ -1,5 +1,5 @@
 %============ This function decodes the given input ==================%
-function code = decode(conv_code, g1, g2, cur_state, err_count, threshhold, level, m)
+function code = decode(conv_code, g1, g2, cur_state, err_count, threshhold, m)
     
     if(err_count >= threshhold)
         code = [];
@@ -17,7 +17,7 @@ function code = decode(conv_code, g1, g2, cur_state, err_count, threshhold, leve
     [next_state_1, output_1] = getNextState(1, cur_state, g1, g2, m);
   
     if(isequal(output_0, conv_2bit))
-        code = [0 decode(conv_code(3:end), g1, g2, next_state_0, err_count, threshhold, level+1, m)];
+        code = [0 decode(conv_code(3:end), g1, g2, next_state_0, err_count, threshhold, m)];
         if(length(code) == (length(conv_code)/2))
             return
         end
@@ -25,7 +25,7 @@ function code = decode(conv_code, g1, g2, cur_state, err_count, threshhold, leve
     end
     
     if(isequal(output_1, conv_2bit))
-        code = [1 decode(conv_code(3:end), g1, g2, next_state_1, err_count, threshhold, level+1, m)];
+        code = [1 decode(conv_code(3:end), g1, g2, next_state_1, err_count, threshhold, m)];
         if(length(code) == (length(conv_code)/2))
             return
         end
@@ -33,7 +33,7 @@ function code = decode(conv_code, g1, g2, cur_state, err_count, threshhold, leve
     end
     
     if((output_0(1) == conv_2bit(1)) | (output_0(2) == conv_2bit(2)))
-        code = [0 decode(conv_code(3:end), g1, g2, next_state_0, err_count+1, threshhold, level+1, m)];
+        code = [0 decode(conv_code(3:end), g1, g2, next_state_0, err_count+1, threshhold, m)];
         if(length(code) == (length(conv_code)/2))
             return
         end
@@ -41,7 +41,7 @@ function code = decode(conv_code, g1, g2, cur_state, err_count, threshhold, leve
     end  
     
     if((output_1(1) == conv_2bit(1)) | (output_1(2) == conv_2bit(2)))
-        code = [1 decode(conv_code(3:end), g1, g2, next_state_1, err_count+1, threshhold, level+1, m)];
+        code = [1 decode(conv_code(3:end), g1, g2, next_state_1, err_count+1, threshhold, m)];
         if(length(code) == (length(conv_code)/2))
             return
         end
@@ -49,7 +49,7 @@ function code = decode(conv_code, g1, g2, cur_state, err_count, threshhold, leve
     end
     
     if((output_0(1) ~= conv_2bit(1)) & (output_0(2) ~= conv_2bit(2)))
-        code = [0 decode(conv_code(3:end), g1, g2, next_state_0, err_count+2, threshhold, level+1, m)];
+        code = [0 decode(conv_code(3:end), g1, g2, next_state_0, err_count+2, threshhold, m)];
         if(length(code) == (length(conv_code)/2))
             return
         end
@@ -57,7 +57,7 @@ function code = decode(conv_code, g1, g2, cur_state, err_count, threshhold, leve
     end 
     
     if((output_1(1) ~= conv_2bit(1)) & (output_1(2) ~= conv_2bit(2)))
-        code = [1 decode(conv_code(3:end), g1, g2, next_state_0, err_count+2, threshhold, level+1, m)];
+        code = [1 decode(conv_code(3:end), g1, g2, next_state_0, err_count+2, threshhold, m)];
         if(length(code) == (length(conv_code)/2))
             return
         end
