@@ -25,3 +25,11 @@ max_errors = 6;
 ```
 
 ![Error Analysis Sample](error_analysis_4bit_input_6_bit_errors.png)
+
+### Problem Statement
+
+> Q42. MATLAB  code  for  convolution  code  (2,  1,  11)  decoding  with  g1 = 110111001 and  g2  =  111011001  and  the  analysis  of  %  of  error  detection  and correction using sequential decoding with threshold upto 5.
+
+### Contributors
+* Praveen Kumar Gupta - 16CO235
+* Shashank P - 16CO247
