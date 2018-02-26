@@ -1,14 +1,20 @@
-function [error_detected, error_corrected, total_cnt] = add_1bit_error(in_code, conv_code, g1, g2, threshold, m)
-% function to add 1 bit error for given input code padded with zeros
 
+% function to add 1 bit error for given input code padded with zeros
+function [error_detected, error_corrected, total_cnt] = add_1bit_error(in_code, conv_code, g1, g2, threshold, m)
     len = length(conv_code);
     total_cnt = 0;
     error_detected = 0;
     error_corrected = 0;
     for i = 1:len
         error1bit_conv_code = conv_code;          
-        
-        error1bit_conv_code(i) = ~error1bit_conv_code(i);    %Introduce error in the bit
+        %{
+        if(error1bit_conv_code(i) == 1)              % if bit is 1  
+            error1bit_conv_code(i) = 0;              % change bit from 1 to 0
+        else
+            error1bit_conv_code(i) = 1;              % else, change bit from 0 to 1
+        end
+        %}
+        error1bit_conv_code(i) = ~error1bit_conv_code(i);%Introduce error in the bit
         
         decoded = decode(error1bit_conv_code, g1, g2, zeros(1, m-1), 0, threshold, m);   % decode the 1 bit error convolutional code
         

@@ -29,9 +29,9 @@ percentage = transpose([per_detected;per_corrected]);
 bar(1:max_errors, percentage)
 legend('% of Detected Errors','% of Corrected Errors')
 ylim([0 100])
-title(['Error Analysis for ', num2str(input_bits) , ' bit Input'])
+title(['Error Analysis for ' num2str(input_bits) , ' bit Input'])
 xlabel('No. of error bits')
 ylabel('Percentage')
 %print('BarPlot','-dpng')
 %=========  Save plot as image  =========%
-print(['error_analysis-',num2str(input_bits),'bit_input-', num2str(max_errors),'bit_errors'],'-dpng')
+print(['error_analysis-', num2str(input_bits), 'bit_input-', num2str(max_errors), 'bit_errors'],'-dpng')
