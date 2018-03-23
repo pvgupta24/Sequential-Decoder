@@ -23,8 +23,9 @@ input_bits = 4;
 max_errors = 6;
 
 ```
-
-![Error Analysis Sample](error_analysis_4bit_input_6_bit_errors.png)
+![Error Analysis Sample](error_analysis_2bit_input_6bit_errors.png)
+![Error Analysis Sample](error_analysis_3bit_input_6bit_errors.png)
+![Error Analysis Sample](error_analysis_4bit_input_6bit_errors.png)
 
 ### Problem Statement
 
