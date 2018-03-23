@@ -34,4 +34,4 @@ xlabel('No. of error bits')
 ylabel('Percentage')
 %print('BarPlot','-dpng')
 %=========  Save plot as image  =========%
-print(['error_analysis-', num2str(input_bits), 'bit_input-', num2str(max_errors), 'bit_errors'],'-dpng')
+print(['error_analysis_', num2str(input_bits), 'bit_input_', num2str(max_errors), 'bit_errors'],'-dpng')
